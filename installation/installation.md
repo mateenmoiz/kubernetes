@@ -8,6 +8,12 @@ If root access is not available then arrange user sudo access using visudo as ro
 
 **Step 2:** Add **k8smaster** host entry in /etc/hosts file (if executing the command on the worker node, still master node ip need to be inserted). Example
 ```sh
+$  vi /etc/hosts
+```
+
+Add the following line in hosts file 
+
+```sh
 172.31.46.172   k8smaster 
 ```
 where 172.31.46.172 is the ip of the master node.
@@ -82,7 +88,7 @@ Run below command to create cluster
 $  sudo kubeadm init --config=kubeadm-config.yaml --upload-certs | tee kubeadm-init.out
 ```
 
-**Step 13:** Execute the following three command as expelled out by the Step 11.
+**Step 13:** Execute the following three command as expelled out by the Step 12.
 ```sh
 $  mkdir -p $HOME/.kube
 $  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
